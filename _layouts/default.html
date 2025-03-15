@@ -6,33 +6,49 @@
     <title>{{ page.title }}</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #005a8d; color: white; }
-        header img { height: 50px; }
-        nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
-        nav ul li { margin: 0 15px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #005a8d; color: white; flex-wrap: wrap; }
+        .logo-text { font-size: 24px; font-weight: bold; text-align: center; flex: 1; }
+        .logo-text span { display: block; color: #ffcc00; }
+        nav { display: none; width: 100%; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav ul li { margin: 10px 0; }
         nav ul li a { text-decoration: none; color: white; font-weight: bold; }
         nav ul li a:hover { text-decoration: underline; }
-        main { padding: 40px; max-width: 800px; margin: auto; background: white; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        .menu-toggle { display: none; font-size: 30px; cursor: pointer; }
+        img { height: 50px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            .menu-toggle { display: block; }
+            nav { display: none; }
+            nav.show { display: block; }
+            img { margin-top: 10px; }
+        }
     </style>
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("mobile-nav");
+            nav.classList.toggle("show");
+        }
+    </script>
 </head>
 <body>
 
 <header>
-    <div style="font-size: 26px; font-weight: bold; font-family: 'Arial', sans-serif; letter-spacing: 1px;">
-        Ingenieurbüro <br>
-        <span style="color: #ffcc00;">PlanKubik</span>
+    <div class="logo-text">
+        Ingenieurbüro <span>PlanKubik</span>
     </div>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="mobile-nav">
         <ul>
-            <li><a href="index.html">Leistungen</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
             <li><a href="unternehmen.html">Unternehmen</a></li>
             <li><a href="aktuelles.html">Aktuelles</a></li>
             <li><a href="karriere.html">Karriere</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
-		<img src="{{ '/assets/Logo.jpg' | relative_url }}" alt="Logo" style="height: 50px;">
-
+    <img src="{{ '/assets/Logo.jpg' | relative_url }}" alt="Logo">
 </header>
 
 <main>
