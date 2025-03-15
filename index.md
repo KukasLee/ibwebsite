@@ -3,17 +3,14 @@ layout: default
 title: Ingenieurbüro für Elektrotechnik
 ---
 
-# Ingenieurbüro für Elektrotechnik
+# Willkommen beim Ingenieurbüro für Elektrotechnik
 
 Wir sind spezialisiert auf Planungsleistungen in den Bereichen:
 
-- **KG 440** – Starkstromanlagen
-- **KG 450** – Fernmelde- und Informationstechnik
+- **KG 440** – Starkstromanlagen  
+- **KG 450** – Fernmelde- und Informationstechnik  
 
-## Unsere Leistungen
-- Beratung und Planung
-- Ausschreibung und Vergabe
-- Bauüberwachung
-- Bestandserfassung und Optimierung
+## Unsere Leistungen  
+👉 [Leistungen ansehen](leistungen.md)  
 
 📞 Kontaktieren Sie uns für eine unverbindliche Beratung!

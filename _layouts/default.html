@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; }
-        header { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #005a8d; color: white; }
+        header img { height: 50px; }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: white; font-weight: bold; }
+        nav ul li a:hover { text-decoration: underline; }
+        main { padding: 40px; max-width: 800px; margin: auto; background: white; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body>
-    <header>Ingenieurbüro für Elektrotechnik</header>
-    <main>
-        {{ content }}
-    </main>
+
+<header>
+    <div style="font-size: 24px; font-weight: bold;">Ingenieurbüro</div>
+    <nav>
+        <ul>
+            <li><a href="index.md">Leistungen</a></li>
+            <li><a href="unternehmen.md">Unternehmen</a></li>
+            <li><a href="aktuelles.md">Aktuelles</a></li>
+            <li><a href="karriere.md">Karriere</a></li>
+            <li><a href="kontakt.md">Kontakt</a></li>
+        </ul>
+    </nav>
+    <img src="/assets/Logo.jpg" alt="Logo">
+</header>
+
+<main>
+    {{ content }}
+</main>
+
 </body>
 </html>
