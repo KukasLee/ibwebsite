@@ -36,6 +36,14 @@
 				nav.show { display: block; }
 				img { margin-top: 10px; }
 			}
+			
+			header img {
+				width: 150px;       /* Standardbreite, hier kannst du den Wert anpassen */
+				max-width: 100%;    /* Stellt sicher, dass das Bild nicht größer als sein Container wird */
+				height: auto;       /* Bewahrt das Seitenverhältnis */
+				}
+
+			
 		</style>
 		<script>
 			function toggleMenu() {
@@ -47,9 +55,10 @@
 	<body>
 
 	<header>
-		<a href="index.html" class="logo-text">
-			Ingenieurbüro <span>PlanKubik</span>
+		<a href="/index.html">
+			<img src="/assets/Logo.jpg" alt="Logo">
 		</a>
+
 		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 		
 		<nav id="mobile-nav">
