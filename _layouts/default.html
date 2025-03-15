@@ -8,7 +8,7 @@
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
         
         /* Header Styling */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #005a8d; color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #005a8d; color: white; flex-wrap: wrap; }
         .logo-text { font-size: 26px; font-weight: bold; text-decoration: none; color: white; }
         .logo-text span { display: block; color: #ffcc00; font-size: 22px; }
         .logo-text:hover { text-decoration: underline; }
@@ -23,6 +23,9 @@
         /* Mobiles Menü */
         .menu-toggle { display: none; font-size: 30px; cursor: pointer; }
         nav { display: flex; }
+
+        /* Inhaltsbereich */
+        main { padding: 20px; max-width: 800px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 20px; }
 
         @media (max-width: 768px) {
             header { flex-direction: column; text-align: center; }
@@ -54,4 +57,15 @@
             <li><a href="unternehmen.html">Unternehmen</a></li>
             <li><a href="aktuelles.html">Aktuelles</a></li>
             <li><a href="karriere.html">Karriere</a></li>
-            <li><a href="kontakt.html">K
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+    <img src="{{ '/assets/Logo.jpg' | relative_url }}" alt="Logo">
+</header>
+
+<main>
+    {{ content }}
+</main>
+
+</body>
+</html>
