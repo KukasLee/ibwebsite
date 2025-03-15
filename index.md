@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Ingenieurbüro für Elektrotechnik
+permalink: /index.html
 ---
 
 # Willkommen beim Ingenieurbüro für Elektrotechnik

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Karriere
+permalink: /karriere.html
 ---
 
 # Karriere bei uns

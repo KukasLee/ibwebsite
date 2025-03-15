@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Unternehmen
+permalink: /unternehmen.html
 ---
 
 # Über uns

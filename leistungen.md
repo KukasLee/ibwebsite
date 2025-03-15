@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Leistungen
+permalink: /leistungen.html
 ---
 
 # Unsere Leistungen

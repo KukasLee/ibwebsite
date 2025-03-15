@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Aktuelles
+permalink: /aktuelles.html
 ---
 
 # Neuigkeiten

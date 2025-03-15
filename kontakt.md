@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Kontakt
+permalink: /kontakt.html
 ---
 
 # Kontakt
