@@ -1,146 +1,81 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f8f9fa; 
-            color: #333; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; /* Zentriert den Inhalt */
-        }
-        
-        /* Header Styling */
-        header { 
-            width: 100%; 
-            max-width: 1200px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 15px 20px; 
-            background: #005a8d; 
-            color: white; 
-            flex-wrap: wrap; 
-        }
+	<!DOCTYPE html>
+	<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ page.title }}</title>
+		<style>
+			body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
+			
+			/* Header Styling */
+			header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #005a8d; color: white; flex-wrap: wrap; }
+			.logo-text { font-size: 26px; font-weight: bold; text-decoration: none; color: white; }
+			.logo-text span { display: block; color: #ffcc00; font-size: 22px; }
+			.logo-text:hover { text-decoration: underline; }
+			img { height: 50px; }
 
-        /* Logo Styling */
-        header a img {
-            width: 150px;       /* Standardbreite */
-            max-width: 100%;    /* Skaliert das Bild automatisch */
-            height: auto;       /* Bewahrt das Seitenverhältnis */
-        }
+			/* Navigation */
+			nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+			nav ul li { margin-left: 20px; }
+			nav ul li a { text-decoration: none; color: white; font-weight: bold; }
+			nav ul li a:hover { text-decoration: underline; }
+			
+			/* Mobiles Menü */
+			.menu-toggle { display: none; font-size: 30px; cursor: pointer; }
+			nav { display: flex; }
 
-        /* Navigation */
-        nav { 
-            display: flex; 
-            justify-content: center;  
-            flex-grow: 1; /* Nimmt verbleibenden Platz ein, ohne das Layout zu stören */
-        }
+			/* Inhaltsbereich */
+			main { padding: 20px; max-width: 800px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 20px; }
 
-        nav ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; /* Zentriert die Navigation */
-        }
+			@media (max-width: 768px) {
+				header { flex-direction: column; text-align: center; }
+				.menu-toggle { display: block; }
+				nav { display: none; width: 100%; text-align: center; }
+				nav ul { flex-direction: column; }
+				nav ul li { margin: 10px 0; }
+				nav.show { display: block; }
+				img { margin-top: 10px; }
+			}
+			
+			header img {
+				width: 150px;       /* Standardbreite, hier kannst du den Wert anpassen */
+				max-width: 100%;    /* Stellt sicher, dass das Bild nicht größer als sein Container wird */
+				height: auto;       /* Bewahrt das Seitenverhältnis */
+				}
 
-        nav ul li { 
-            margin: 0 15px; /* Abstand zwischen den Navigationselementen */
-        }
+			
+		</style>
+		<script>
+			function toggleMenu() {
+				var nav = document.getElementById("mobile-nav");
+				nav.classList.toggle("show");
+			}
+		</script>
+	</head>
+	<body>
 
-        nav ul li a { 
-            text-decoration: none; 
-            color: white; 
-            font-weight: bold; 
-        }
+	<header>
+		<a href="/index.html">
+			<img src="/assets/Logo.jpg" alt="Logo">
+		</a>
 
-        nav ul li a:hover { 
-            text-decoration: underline; 
-        }
+		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+		
+		<nav id="mobile-nav">
+			<ul>
+				{% for item in site.navigation %}
+					<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+				{% endfor %}				
+			</ul>
+			
+		</nav>
+		
 
-        /* Mobiles Menü */
-        .menu-toggle { 
-            display: none; 
-            font-size: 30px; 
-            cursor: pointer; 
-        }
+	</header>
 
-        @media (max-width: 768px) {
-            header { 
-                flex-direction: column; 
-                text-align: center; 
-            }
+	<main>
+		{{ content }}
+	</main>
 
-            .menu-toggle { 
-                display: block; 
-            }
-
-            nav { 
-                display: none; 
-                width: 100%; 
-                text-align: center; 
-            }
-
-            nav ul { 
-                flex-direction: column; 
-            }
-
-            nav ul li { 
-                margin: 10px 0; 
-            }
-
-            nav.show { 
-                display: block; 
-            }
-        }
-
-        /* Inhaltsbereich */
-        main { 
-            width: 100%; 
-            max-width: 800px; /* Begrenzt die Breite für bessere Lesbarkeit */
-            padding: 20px; 
-            background: white; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-            border-radius: 8px; 
-            margin-top: 20px; 
-            text-align: center; /* Inhalt zentrieren */
-        }
-    </style>
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("mobile-nav");
-            nav.classList.toggle("show");
-        }
-    </script>
-</head>
-<body>
-
-<header>
-    <a href="/index.html">
-        <img src="/assets/Logo.jpg" alt="Logo">
-    </a>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
-    <nav id="mobile-nav">
-        <ul>
-            {% for item in site.navigation %}
-                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}				
-        </ul>
-    </nav>
-</header>
-
-<main>
-    {{ content }}
-</main>
-
-</body>
-</html>
+	</body>
+	</html>
