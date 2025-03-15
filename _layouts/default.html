@@ -1,72 +1,72 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        
-        /* Header Styling */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #005a8d; color: white; flex-wrap: wrap; }
-        .logo-text { font-size: 26px; font-weight: bold; text-decoration: none; color: white; }
-        .logo-text span { display: block; color: #ffcc00; font-size: 22px; }
-        .logo-text:hover { text-decoration: underline; }
-        img { height: 50px; }
+	<!DOCTYPE html>
+	<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ page.title }}</title>
+		<style>
+			body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
+			
+			/* Header Styling */
+			header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #005a8d; color: white; flex-wrap: wrap; }
+			.logo-text { font-size: 26px; font-weight: bold; text-decoration: none; color: white; }
+			.logo-text span { display: block; color: #ffcc00; font-size: 22px; }
+			.logo-text:hover { text-decoration: underline; }
+			img { height: 50px; }
 
-        /* Navigation */
-        nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { text-decoration: none; color: white; font-weight: bold; }
-        nav ul li a:hover { text-decoration: underline; }
-        
-        /* Mobiles Menü */
-        .menu-toggle { display: none; font-size: 30px; cursor: pointer; }
-        nav { display: flex; }
+			/* Navigation */
+			nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+			nav ul li { margin-left: 20px; }
+			nav ul li a { text-decoration: none; color: white; font-weight: bold; }
+			nav ul li a:hover { text-decoration: underline; }
+			
+			/* Mobiles Menü */
+			.menu-toggle { display: none; font-size: 30px; cursor: pointer; }
+			nav { display: flex; }
 
-        /* Inhaltsbereich */
-        main { padding: 20px; max-width: 800px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 20px; }
+			/* Inhaltsbereich */
+			main { padding: 20px; max-width: 800px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 20px; }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; }
-            .menu-toggle { display: block; }
-            nav { display: none; width: 100%; text-align: center; }
-            nav ul { flex-direction: column; }
-            nav ul li { margin: 10px 0; }
-            nav.show { display: block; }
-            img { margin-top: 10px; }
-        }
-    </style>
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("mobile-nav");
-            nav.classList.toggle("show");
-        }
-    </script>
-</head>
-<body>
+			@media (max-width: 768px) {
+				header { flex-direction: column; text-align: center; }
+				.menu-toggle { display: block; }
+				nav { display: none; width: 100%; text-align: center; }
+				nav ul { flex-direction: column; }
+				nav ul li { margin: 10px 0; }
+				nav.show { display: block; }
+				img { margin-top: 10px; }
+			}
+		</style>
+		<script>
+			function toggleMenu() {
+				var nav = document.getElementById("mobile-nav");
+				nav.classList.toggle("show");
+			}
+		</script>
+	</head>
+	<body>
 
-<header>
-    <a href="index.html" class="logo-text">
-        Ingenieurbüro <span>PlanKubik</span>
-    </a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav id="mobile-nav">
-        <ul>
-            <li><a href="leistungen.html">Leistungen</a></li>
-            <li><a href="unternehmen.html">Unternehmen</a></li>
-            <li><a href="aktuelles.html">Aktuelles</a></li>
-            <li><a href="karriere.html">Karriere</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-    </nav>
-    <img src="/assets/Logo.jpg" alt="Logo">
+	<header>
+		<a href="index.html" class="logo-text">
+			Ingenieurbüro <span>PlanKubik</span>
+		</a>
+		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+		
+		<nav id="mobile-nav">
+			<ul>
+				{% for item in site.navigation %}
+					<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+				{% endfor %}				
+			</ul>
+		</nav>
+		
+		<img src="/assets/Logo.jpg" alt="Logo">
 
-</header>
+	</header>
 
-<main>
-    {{ content }}
-</main>
+	<main>
+		{{ content }}
+	</main>
 
-</body>
-</html>
+	</body>
+	</html>

@@ -1,3 +1,17 @@
 theme: minima
 title: Ingenieurbüro für Elektrotechnik
 description: Planung KG 440 & KG 450
+
+navigation:
+  - title: "Startseite"
+    url: "/index.html"
+  - title: "Leistungen"
+    url: "/leistungen.html"
+  - title: "Unternehmen"
+    url: "/unternehmen.html"
+  - title: "Aktuelles"
+    url: "/aktuelles.html"
+  - title: "Karriere"
+    url: "/karriere.html"
+  - title: "Kontakt"
+    url: "/kontakt.html"

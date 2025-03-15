@@ -12,6 +12,6 @@ Wir sind spezialisiert auf Planungsleistungen in den Bereichen:
 - **KG 450** – Fernmelde- und Informationstechnik  
 
 ## Unsere Leistungen  
-👉 [Leistungen ansehen](leistungen.md)  
+👉 [Leistungen ansehen](leistungen.html)  
 
 📞 Kontaktieren Sie uns für eine unverbindliche Beratung!
